@@ -251,14 +251,22 @@ rAngles = [result.t[dxR] for i in 1:size(result.t)[1]]
 
 ```julia
 # График траекторий для случая 1
-plt1 = plot(proj=:polar, aspect_ratio=:equal, dpi = 1000, legend=true, bg=:lightgrey)
+plt1 = plot(proj=:polar, aspect_ratio=:equal, dpi = 1000, 
+legend=true, bg=:lightgrey)
 
 # Настрою холст
-plot!(plt1, xlabel="theta", ylabel="r(t)", title="Задача о погоне. Случай 1.", legend=:best)
+plot!(plt1, xlabel="theta", ylabel="r(t)", 
+title="Задача о погоне. Случай 1.", legend=:best)
 
-plot!(plt1, [rAngles[1], rAngles[2]], [0.0, result.u[size(result.u)[1]]], label="Траектория лодки", color=:red, lw=2)
+plot!(plt1, [rAngles[1], rAngles[2]], [0.0, result.u[size(result.u)[1]]], 
+label="Траектория лодки", color=:red, lw=2)
+```
+## Решение задачи в программной среде 
+
+```julia
 scatter!(plt1, rAngles, result.u, label="", mc=:red, ms=0.0005)
-plot!(plt1, result.t, result.u, xlabel="theta", ylabel="r(t)", label="Траектория катера", color=:green, lw=2)
+plot!(plt1, result.t, result.u, xlabel="theta", ylabel="r(t)", 
+label="Траектория катера", color=:green, lw=2)
 scatter!(plt1, result.t, result.u, label="", mc=:green, ms=0.0005)
 
 savefig(plt1, "lab02_img1.png")
@@ -276,17 +284,21 @@ dxR = rand(1:size(result.t)[1])
 rAngles = [result.t[dxR] for i in 1:size(result.t)[1]]
 
 # График траекторий для случая 2
-plt2 = plot(proj=:polar, aspect_ratio=:equal, dpi = 1000, legend=true, bg=:lightgrey)
+plt2 = plot(proj=:polar, aspect_ratio=:equal, 
+dpi = 1000, legend=true, bg=:lightgrey)
 ```
 
 ## Решение задачи в программной среде 
 
 ```julia
 # Настрою холст
-plot!(plt2, xlabel="theta", ylabel="r(t)", title="Задача о погоне. Случай 2", legend=:best)
-plot!(plt2, [rAngles[1], rAngles[2]], [0.0, result.u[size(result.u)[1]]], label="Траектория лодки", color=:red, lw=2)
+plot!(plt2, xlabel="theta", ylabel="r(t)", 
+title="Задача о погоне. Случай 2", legend=:best)
+plot!(plt2, [rAngles[1], rAngles[2]], [0.0, result.u[size(result.u)[1]]],
+label="Траектория лодки", color=:red, lw=2)
 scatter!(plt2, rAngles, result.u, label="", mc=:red, ms=0.0005)
-plot!(plt2, result.t, result.u, xlabel="theta", ylabel="r(t)", label="Траектория катера", color=:green, lw=2)
+plot!(plt2, result.t, result.u, xlabel="theta", ylabel="r(t)", 
+label="Траектория катера", color=:green, lw=2)
 scatter!(plt2, result.t, result.u, label="", mc=:green, ms=0.0005)
 
 savefig(plt2, "lab02_img2.png")

@@ -743,43 +743,54 @@ r_0 = x_2 = {\frac{17}{5}}
 <section id="решение-задачи-в-программной-среде-8" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
 <div class="sourceCode" id="cb4"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># График траекторий для случая 1</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt1 <span class="op">=</span> <span class="fu">plot</span>(proj<span class="op">=:</span>polar, aspect_ratio<span class="op">=:</span>equal, dpi <span class="op">=</span> <span class="fl">1000</span>, legend<span class="op">=</span><span class="cn">true</span>, bg<span class="op">=:</span>lightgrey)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Настрою холст</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, xlabel<span class="op">=</span><span class="st">&quot;theta&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;r(t)&quot;</span>, title<span class="op">=</span><span class="st">&quot;Задача о погоне. Случай 1.&quot;</span>, legend<span class="op">=:</span>best)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, [rAngles[<span class="fl">1</span>], rAngles[<span class="fl">2</span>]], [<span class="fl">0.0</span>, result.u[<span class="fu">size</span>(result.u)[<span class="fl">1</span>]]], label<span class="op">=</span><span class="st">&quot;Траектория лодки&quot;</span>, color<span class="op">=:</span>red, lw<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter!</span>(plt1, rAngles, result.u, label<span class="op">=</span><span class="st">&quot;&quot;</span>, mc<span class="op">=:</span>red, ms<span class="op">=</span><span class="fl">0.0005</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, result.t, result.u, xlabel<span class="op">=</span><span class="st">&quot;theta&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;r(t)&quot;</span>, label<span class="op">=</span><span class="st">&quot;Траектория катера&quot;</span>, color<span class="op">=:</span>green, lw<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter!</span>(plt1, result.t, result.u, label<span class="op">=</span><span class="st">&quot;&quot;</span>, mc<span class="op">=:</span>green, ms<span class="op">=</span><span class="fl">0.0005</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(plt1, <span class="st">&quot;lab02_img1.png&quot;</span>)</span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt1 <span class="op">=</span> <span class="fu">plot</span>(proj<span class="op">=:</span>polar, aspect_ratio<span class="op">=:</span>equal, dpi <span class="op">=</span> <span class="fl">1000</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>legend<span class="op">=</span><span class="cn">true</span>, bg<span class="op">=:</span>lightgrey)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Настрою холст</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, xlabel<span class="op">=</span><span class="st">&quot;theta&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;r(t)&quot;</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>title<span class="op">=</span><span class="st">&quot;Задача о погоне. Случай 1.&quot;</span>, legend<span class="op">=:</span>best)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, [rAngles[<span class="fl">1</span>], rAngles[<span class="fl">2</span>]], [<span class="fl">0.0</span>, result.u[<span class="fu">size</span>(result.u)[<span class="fl">1</span>]]], </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span><span class="st">&quot;Траектория лодки&quot;</span>, color<span class="op">=:</span>red, lw<span class="op">=</span><span class="fl">2</span>)</span></code></pre></div>
 </section>
 <section id="решение-задачи-в-программной-среде-9" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Задаем проблему(задачу) для случая 2</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>problem <span class="op">=</span> <span class="fu">ODEProblem</span>(F, r0_2 , T2)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Решение для случая 2</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="fu">solve</span>(problem, abstol<span class="op">=</span><span class="fl">1e-8</span>, reltol<span class="op">=</span><span class="fl">1e-8</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>dxR <span class="op">=</span> <span class="fu">rand</span>(<span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(result.t)[<span class="fl">1</span>])</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>rAngles <span class="op">=</span> [result.t[dxR] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(result.t)[<span class="fl">1</span>]]</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># График траекторий для случая 2</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt2 <span class="op">=</span> <span class="fu">plot</span>(proj<span class="op">=:</span>polar, aspect_ratio<span class="op">=:</span>equal, dpi <span class="op">=</span> <span class="fl">1000</span>, legend<span class="op">=</span><span class="cn">true</span>, bg<span class="op">=:</span>lightgrey)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter!</span>(plt1, rAngles, result.u, label<span class="op">=</span><span class="st">&quot;&quot;</span>, mc<span class="op">=:</span>red, ms<span class="op">=</span><span class="fl">0.0005</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, result.t, result.u, xlabel<span class="op">=</span><span class="st">&quot;theta&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;r(t)&quot;</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span><span class="st">&quot;Траектория катера&quot;</span>, color<span class="op">=:</span>green, lw<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter!</span>(plt1, result.t, result.u, label<span class="op">=</span><span class="st">&quot;&quot;</span>, mc<span class="op">=:</span>green, ms<span class="op">=</span><span class="fl">0.0005</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(plt1, <span class="st">&quot;lab02_img1.png&quot;</span>)</span></code></pre></div>
 </section>
 <section id="решение-задачи-в-программной-среде-10" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Настрою холст</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, xlabel<span class="op">=</span><span class="st">&quot;theta&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;r(t)&quot;</span>, title<span class="op">=</span><span class="st">&quot;Задача о погоне. Случай 2&quot;</span>, legend<span class="op">=:</span>best)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, [rAngles[<span class="fl">1</span>], rAngles[<span class="fl">2</span>]], [<span class="fl">0.0</span>, result.u[<span class="fu">size</span>(result.u)[<span class="fl">1</span>]]], label<span class="op">=</span><span class="st">&quot;Траектория лодки&quot;</span>, color<span class="op">=:</span>red, lw<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter!</span>(plt2, rAngles, result.u, label<span class="op">=</span><span class="st">&quot;&quot;</span>, mc<span class="op">=:</span>red, ms<span class="op">=</span><span class="fl">0.0005</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, result.t, result.u, xlabel<span class="op">=</span><span class="st">&quot;theta&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;r(t)&quot;</span>, label<span class="op">=</span><span class="st">&quot;Траектория катера&quot;</span>, color<span class="op">=:</span>green, lw<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter!</span>(plt2, result.t, result.u, label<span class="op">=</span><span class="st">&quot;&quot;</span>, mc<span class="op">=:</span>green, ms<span class="op">=</span><span class="fl">0.0005</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(plt2, <span class="st">&quot;lab02_img2.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Задаем проблему(задачу) для случая 2</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>problem <span class="op">=</span> <span class="fu">ODEProblem</span>(F, r0_2 , T2)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Решение для случая 2</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="fu">solve</span>(problem, abstol<span class="op">=</span><span class="fl">1e-8</span>, reltol<span class="op">=</span><span class="fl">1e-8</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>dxR <span class="op">=</span> <span class="fu">rand</span>(<span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(result.t)[<span class="fl">1</span>])</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>rAngles <span class="op">=</span> [result.t[dxR] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(result.t)[<span class="fl">1</span>]]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># График траекторий для случая 2</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt2 <span class="op">=</span> <span class="fu">plot</span>(proj<span class="op">=:</span>polar, aspect_ratio<span class="op">=:</span>equal, </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>dpi <span class="op">=</span> <span class="fl">1000</span>, legend<span class="op">=</span><span class="cn">true</span>, bg<span class="op">=:</span>lightgrey)</span></code></pre></div>
 </section>
 <section id="решение-задачи-в-программной-среде-11" class="slide level2">
+<h2>Решение задачи в программной среде</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Настрою холст</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, xlabel<span class="op">=</span><span class="st">&quot;theta&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;r(t)&quot;</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>title<span class="op">=</span><span class="st">&quot;Задача о погоне. Случай 2&quot;</span>, legend<span class="op">=:</span>best)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, [rAngles[<span class="fl">1</span>], rAngles[<span class="fl">2</span>]], [<span class="fl">0.0</span>, result.u[<span class="fu">size</span>(result.u)[<span class="fl">1</span>]]],</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span><span class="st">&quot;Траектория лодки&quot;</span>, color<span class="op">=:</span>red, lw<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter!</span>(plt2, rAngles, result.u, label<span class="op">=</span><span class="st">&quot;&quot;</span>, mc<span class="op">=:</span>red, ms<span class="op">=</span><span class="fl">0.0005</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, result.t, result.u, xlabel<span class="op">=</span><span class="st">&quot;theta&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;r(t)&quot;</span>, </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span><span class="st">&quot;Траектория катера&quot;</span>, color<span class="op">=:</span>green, lw<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter!</span>(plt2, result.t, result.u, label<span class="op">=</span><span class="st">&quot;&quot;</span>, mc<span class="op">=:</span>green, ms<span class="op">=</span><span class="fl">0.0005</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(plt2, <span class="st">&quot;lab02_img2.png&quot;</span>)</span></code></pre></div>
+</section>
+<section id="решение-задачи-в-программной-среде-12" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
 <p>Выполняю эту программу:</p>
 <figure id="fig:006">
@@ -788,7 +799,7 @@ r_0 = x_2 = {\frac{17}{5}}
 программы.</figcaption>
 </figure>
 </section>
-<section id="решение-задачи-в-программной-среде-12" class="slide level2">
+<section id="решение-задачи-в-программной-среде-13" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
 <p>В итоге получаю следующие графики:</p>
 <figure id="fig:007">
@@ -797,7 +808,7 @@ r_0 = x_2 = {\frac{17}{5}}
 1.</figcaption>
 </figure>
 </section>
-<section id="решение-задачи-в-программной-среде-13" class="slide level2">
+<section id="решение-задачи-в-программной-среде-14" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
 <p>В итоге получаю следующие графики:</p>
 <figure id="fig:008">
