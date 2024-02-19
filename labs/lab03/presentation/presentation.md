@@ -327,7 +327,8 @@ result2 = solve(problem2, dtmax=0.000001)
 ## Решение задачи в программной среде 
 
 ```julia
-# Данные массивы будут хранить численность x (A11, A21), численность y(A12,A22) в момент времени t (T1, T2)
+# Данные массивы будут хранить численность x (A11, A21), 
+#численность y(A12,A22) в момент времени t (T1, T2)
 A11 = [u[1] for u in result1.u]
 A12 = [u[2] for u in result1.u]
 T1 = [t for t in result1.t]
@@ -343,7 +344,8 @@ T2 = [t for t in result2.t]
 plt1 = plot(dpi = 300, legend= true, bg =:lightgrey)
 
 # Настраиваю холст 1
-plot!(plt1, xlabel="Время", ylabel="Численность", title="Модель боевых действий. Случай 1", legend=:best, lw=:2)
+plot!(plt1, xlabel="Время", ylabel="Численность", 
+title="Модель боевых действий. Случай 1", legend=:best, lw=:2)
 plot!(plt1, T1, A11, label="Численность армии X", color =:blue)
 plot!(plt1, T1, A12, label="Численность армии Y", color =:green)
 # Сохраняю результат в файл
@@ -356,7 +358,8 @@ savefig(plt1, "lab03_1.png")
 plt2 = plot(dpi = 1200, legend= true, bg =:lightgrey)
 
 # Настраиваю холст 2
-plot!(plt2, xlabel="Время", ylabel="Численность", title="Модель боевых действий. Случай 2", legend=:best, lw=:2)
+plot!(plt2, xlabel="Время", ylabel="Численность", 
+title="Модель боевых действий. Случай 2", legend=:best, lw=:2)
 plot!(plt2, T2, A21, label="Численность армии X", color =:blue)
 plot!(plt2, T2, A22, label="Численность армии Y", color =:green)
 # Сохраняю результат в файл

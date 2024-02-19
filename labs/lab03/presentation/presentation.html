@@ -787,13 +787,14 @@ OpenModelica результат для второго случая.</figcaption>
 </section>
 <section id="решение-задачи-в-программной-среде-11" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Данные массивы будут хранить численность x (A11, A21), численность y(A12,A22) в момент времени t (T1, T2)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>A11 <span class="op">=</span> [u[<span class="fl">1</span>] for u <span class="kw">in</span> result1.u]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>A12 <span class="op">=</span> [u[<span class="fl">2</span>] for u <span class="kw">in</span> result1.u]</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>T1 <span class="op">=</span> [t for t <span class="kw">in</span> result1.t]</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>A21 <span class="op">=</span> [u[<span class="fl">1</span>] for u <span class="kw">in</span> result2.u]</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>A22 <span class="op">=</span> [u[<span class="fl">2</span>] for u <span class="kw">in</span> result2.u]</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>T2 <span class="op">=</span> [t for t <span class="kw">in</span> result2.t]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Данные массивы будут хранить численность x (A11, A21), </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#численность y(A12,A22) в момент времени t (T1, T2)</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>A11 <span class="op">=</span> [u[<span class="fl">1</span>] for u <span class="kw">in</span> result1.u]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>A12 <span class="op">=</span> [u[<span class="fl">2</span>] for u <span class="kw">in</span> result1.u]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>T1 <span class="op">=</span> [t for t <span class="kw">in</span> result1.t]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>A21 <span class="op">=</span> [u[<span class="fl">1</span>] for u <span class="kw">in</span> result2.u]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>A22 <span class="op">=</span> [u[<span class="fl">2</span>] for u <span class="kw">in</span> result2.u]</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>T2 <span class="op">=</span> [t for t <span class="kw">in</span> result2.t]</span></code></pre></div>
 </section>
 <section id="решение-задачи-в-программной-среде-12" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
@@ -801,11 +802,12 @@ OpenModelica результат для второго случая.</figcaption>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt1 <span class="op">=</span> <span class="fu">plot</span>(dpi <span class="op">=</span> <span class="fl">300</span>, legend<span class="op">=</span> <span class="cn">true</span>, bg <span class="op">=:</span>lightgrey)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Настраиваю холст 1</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, xlabel<span class="op">=</span><span class="st">&quot;Время&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;Численность&quot;</span>, title<span class="op">=</span><span class="st">&quot;Модель боевых действий. Случай 1&quot;</span>, legend<span class="op">=:</span>best, lw<span class="op">=:</span><span class="fl">2</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, T1, A11, label<span class="op">=</span><span class="st">&quot;Численность армии X&quot;</span>, color <span class="op">=:</span>blue)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, T1, A12, label<span class="op">=</span><span class="st">&quot;Численность армии Y&quot;</span>, color <span class="op">=:</span>green)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Сохраняю результат в файл</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(plt1, <span class="st">&quot;lab03_1.png&quot;</span>)</span></code></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, xlabel<span class="op">=</span><span class="st">&quot;Время&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;Численность&quot;</span>, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>title<span class="op">=</span><span class="st">&quot;Модель боевых действий. Случай 1&quot;</span>, legend<span class="op">=:</span>best, lw<span class="op">=:</span><span class="fl">2</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, T1, A11, label<span class="op">=</span><span class="st">&quot;Численность армии X&quot;</span>, color <span class="op">=:</span>blue)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt1, T1, A12, label<span class="op">=</span><span class="st">&quot;Численность армии Y&quot;</span>, color <span class="op">=:</span>green)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Сохраняю результат в файл</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(plt1, <span class="st">&quot;lab03_1.png&quot;</span>)</span></code></pre></div>
 </section>
 <section id="решение-задачи-в-программной-среде-13" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
@@ -813,11 +815,12 @@ OpenModelica результат для второго случая.</figcaption>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt2 <span class="op">=</span> <span class="fu">plot</span>(dpi <span class="op">=</span> <span class="fl">1200</span>, legend<span class="op">=</span> <span class="cn">true</span>, bg <span class="op">=:</span>lightgrey)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Настраиваю холст 2</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, xlabel<span class="op">=</span><span class="st">&quot;Время&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;Численность&quot;</span>, title<span class="op">=</span><span class="st">&quot;Модель боевых действий. Случай 2&quot;</span>, legend<span class="op">=:</span>best, lw<span class="op">=:</span><span class="fl">2</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, T2, A21, label<span class="op">=</span><span class="st">&quot;Численность армии X&quot;</span>, color <span class="op">=:</span>blue)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, T2, A22, label<span class="op">=</span><span class="st">&quot;Численность армии Y&quot;</span>, color <span class="op">=:</span>green)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Сохраняю результат в файл</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(plt2, <span class="st">&quot;lab03_2.png&quot;</span>)</span></code></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, xlabel<span class="op">=</span><span class="st">&quot;Время&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;Численность&quot;</span>, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>title<span class="op">=</span><span class="st">&quot;Модель боевых действий. Случай 2&quot;</span>, legend<span class="op">=:</span>best, lw<span class="op">=:</span><span class="fl">2</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, T2, A21, label<span class="op">=</span><span class="st">&quot;Численность армии X&quot;</span>, color <span class="op">=:</span>blue)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(plt2, T2, A22, label<span class="op">=</span><span class="st">&quot;Численность армии Y&quot;</span>, color <span class="op">=:</span>green)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Сохраняю результат в файл</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(plt2, <span class="st">&quot;lab03_2.png&quot;</span>)</span></code></pre></div>
 </section>
 <section id="решение-задачи-в-программной-среде-14" class="slide level2">
 <h2>Решение задачи в программной среде</h2>
